@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CO2 Übersichtstabelle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="language.js" defer></script>
+    <style>
+      html, body {
+        height: 100%;
+      }
+
+      /* Cursor sichtbar machen */
+      th {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: #81fd8b;" class="d-flex flex-column min-vh-100">
+
+        <!--Überschrift und Logo-->
+
+<div  class="d-flex justify-content-between align-items-center" 
+      style="background-color: #00fd15; color: rgb(0, 0, 0);">
+  <h1 class="m-1">CO2-Footprint Tracker</h1>
+  <img src="OrgaLogo.png" class="img-fluid" style="max-width: 8rem; height: auto;">
+</div>
+
+
+    <!--Navigation-->
+    <nav class="d-flex nav" style="background-color: #078603">
+      <a class="nav-link text-white" href="Startseite.html">Startseite</a>
+      <a class="nav-link text-white" href="ueberuns 1.html">Über uns</a>
+      <a class="nav-link text-white" href="tabelle 1.html">Tabellenübersicht</a>
+    </nav>
+
+    <!-- Container Bereich -->
+    <main>
+      <div class="container-fluid h-100 row">
+        <div class="col-lg-12 col-sm-12 d-flex flex-column">
+          <p></p>
+        <input type="text" id="suchfeld" class="form-control mb-3" placeholder="Suche in der Tabelle..." oninput="bereinigeEingabe(this)" onkeyup="filterTabelle()">
+          <h3>Emissionstabelle</h3>
+          <p>Diese Liste beinhaltet die Unternehmen mit der größten Förderung an Emissionen in Millionen-Tonnen.</p>
+          <div class="table-responsive">
+  <table id="emissionstabelle" class="table table-striped">
+            <thead>
+              <tr>
+                <th onclick="sortiereTabelle(0)">Rang</th>
+                <th onclick="sortiereTabelle(1)">Unternehmen</th>
+                <th onclick="sortiereTabelle(2)">Land</th>
+                <th onclick="sortiereTabelle(3)">Emissionen</th>
+                <th onclick="sortiereTabelle(4)">Weltanteil in Prozent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Saudi Aramco</td>
+                <td>Saudi-Arabien</td>
+                <td>1951</td>
+                <td>4,6</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Gazprom</td>
+                <td>Russland</td>
+                <td>1138</td>
+                <td>2,7</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>National Iranian Oil Company</td>
+                <td>Iran</td>
+                <td>1036</td>
+                <td>2,4</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Coal India</td>
+                <td>Indien</td>
+                <td>1025</td>
+                <td>2,4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>China Shenhua Energy</td>
+                <td>Volksrepublik China</td>
+                <td>1001</td>
+                <td>2,4</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Rosneft</td>
+                <td>Russland</td>
+                <td>777</td>
+                <td>1,8</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>China National Petroleum Corporation</td>
+                <td>Volksrepublik China</td>
+                <td>625</td>
+                <td>1,5</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Abu Dhabi National Oil Company</td>
+                <td>Vereinigte Arabische Emirate</td>
+                <td>584</td>
+                <td>1,4</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>ExxonMobil</td>
+                <td>Vereinigte Staaten</td>
+                <td>577</td>
+                <td>1,4</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>PEMEX</td>
+                <td>Mexiko</td>
+                <td>530</td>
+                <td>1,3</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>Royal Dutch Shell</td>
+                <td>Niederlande,<p>
+
+                </p>
+                  Vereinigtes Königreich
+                </td>
+                <td>508</td>
+                <td>1,2</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>Sonatrach</td>
+                <td>Algerien</td>
+                <td>492</td>
+                <td>1,2</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>Kuwait Petroleum Corporation</td>
+                <td>Kuwait</td>
+                <td>478</td>
+                <td>1,1</td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td>BP</td>
+                <td>Vereinigtes Königreich</td>
+                <td>448</td>
+                <td>1,1</td>
+              </tr>
+              <tr>
+                <td>15</td>
+                <td>Qatar Petroleum</td>
+                <td>Katar</td>
+                <td>414</td>
+                <td>1,0</td>
+              </tr>
+              <tr>
+                <td>16</td>
+                <td>Petróleos de Venezuela</td>
+                <td>Venezuela</td>
+                <td>398</td>
+                <td>0,9</td>
+              </tr>
+              <tr>
+                <td>17</td>
+                <td>Peabody Energy</td>
+                <td>Vereinigte Staaten</td>
+                <td>397</td>
+                <td>0,9</td>
+              </tr>
+              <tr>
+                <td>18</td>
+                <td>Iraq National Oil Company</td>
+                <td>Irak</td>
+                <td>391</td>
+                <td>0,9</td>
+              </tr>
+              <tr>
+                <td>19</td>
+                <td>Petrobras</td>
+                <td>Brasilien</td>
+                <td>382</td>
+                <td>0,9</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>Chevron Corporation</td>
+                <td>Vereinigte Staaten</td>
+                <td>377</td>
+                <td>0,9</td>
+              </tr>
+
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+     <!--Footer-->
+ <footer class="mt-auto p-3 bg-dark">
+  <nav>
+    <ul class="d-flex justify-content-center gap-3 list-unstyled m-0">
+      <li><a class="text-white" href="impressum.html">Impressum und Datenschutz</a></li>
+    </ul>
+  </nav>
+</footer>
+
+    <!-- JavaScript zum Sortieren der Tabelle -->
+    <script>
+      // Speichert die Sortierrichtung je Spalte
+      let richtungMap = {};
+
+      function sortiereTabelle(spaltenIndex) {
+        const tabelle = document.getElementById("emissionstabelle");
+        let zeilen, wechseln, i, x, y, sollteWechseln;
+
+        // Sortierrichtung für diese Spalte festlegen (wechseln bei erneutem Klick)
+        let richtung = richtungMap[spaltenIndex] === "auf" ? "ab" : "auf";
+        richtungMap[spaltenIndex] = richtung;
+
+        let gewechselt = false;
+
+        do {
+          gewechselt = false;
+          zeilen = tabelle.rows;
+
+          for (i = 1; i < zeilen.length - 1; i++) {
+            sollteWechseln = false;
+            x = zeilen[i].getElementsByTagName("TD")[spaltenIndex];
+            y = zeilen[i + 1].getElementsByTagName("TD")[spaltenIndex];
+
+            // Zahlen (mit Komma) oder Text vergleichen
+            const xWert = isNaN(x.innerText) ? x.innerText.toLowerCase() : parseFloat(x.innerText);
+            const yWert = isNaN(y.innerText) ? y.innerText.toLowerCase() : parseFloat(y.innerText);
+
+            if ((richtung === "auf" && xWert > yWert) ||
+                (richtung === "ab" && xWert < yWert)) {
+              sollteWechseln = true;
+              break;
+            }
+          }
+
+          if (sollteWechseln) {
+            zeilen[i].parentNode.insertBefore(zeilen[i + 1], zeilen[i]);
+            gewechselt = true;
+          }
+        } while (gewechselt);
+      }
+
+      function filterTabelle() {
+  const input = document.getElementById("suchfeld");
+  const rawFilter = input.value.toLowerCase();
+
+  const tabelle = document.getElementById("emissionstabelle");
+  const zeilen = tabelle.getElementsByTagName("tr");
+
+  for (let i = 1; i < zeilen.length; i++) {
+    const zellen = zeilen[i].getElementsByTagName("td");
+    let sichtbar = false;
+
+    for (let j = 0; j < zellen.length; j++) {
+      const text = zellen[j].textContent || zellen[j].innerText;
+      if (text.toLowerCase().indexOf(rawFilter) > -1) {
+        sichtbar = true;
+        break;
+      }
+    }
+
+
+      zeilen[i].style.display = sichtbar ? "" : "none";
+
+
+      }
+    }
+
+          function bereinigeEingabe(feld) {
+  // Nur sichere Zeichen zulassen
+  feld.value = feld.value.replace(/[<>\/\\{}\[\]\(\)\$%\^&\*\=\+!\"']/g, '');
+          }
+    
+    </script>
+
+  </body>
+</html>
+
+
